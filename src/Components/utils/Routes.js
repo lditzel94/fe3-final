@@ -1,8 +1,27 @@
+import {Route, Routes} from "react-router-dom";
+import Home from "../../Routes/Home";
+import Favs from "../../Routes/Favs";
+import Detail from "../../Routes/Detail";
+import Contact from "../../Routes/Contact";
+import NotFound from "../../Routes/NotFound";
+
 export const routes = {
     home: '/',
+    favs: 'favs',
+    detail: '/detail/:id',
     contact: '/contact',
-    detail:'/detail',
-    favs:'favs',
-    notFound:'*',
-    detailedId: '/detail/:id'
+    notFound: '*',
 }
+
+const AppRoutes = () => {
+    return (
+        <Routes>
+            <Route path={routes.home} element={<Home/>}/>
+            <Route path={routes.favs} element={<Favs/>}/>
+            <Route path={routes.detail} element={<Detail/>}/>
+            <Route path={routes.contact} element={<Contact/>}/>
+            <Route path={routes.notFound} element={<NotFound/>}/>
+        </Routes>
+    )
+}
+export default AppRoutes;

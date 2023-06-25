@@ -1,20 +1,34 @@
-import React from "react";
-
+import React, { useState }  from "react";
+import doctorImage from "../assets/doctor.jpg"
 
 const Card = ({name, username, id}) => {
+    const [isFavorite, setIsFavorite] = useState(false);
 
-    const addFav = () => {
-        // Aqui iria la logica para agregar la Card en el localStorage
+
+    const toggleFavorite = () => {
+        setIsFavorite(!isFavorite);
+      };
+    
+      const addFav = () => {
+        const existingData = localStorage.getItem("favorites");
+        const favorites = existingData ? JSON.parse(existingData) : [];
+        const cardData = { name, username, id };
+        favorites.push(cardData);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        toggleFavorite();
+      };
+    
+
+    const detailedPage = () => {
+        //Logica para redirigir a la pagina especifica al clickear la imagen
     }
 
     return (
-        <div className="card">
-            {/* En cada card deberan mostrar en name - username y el id */}
-
-            {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-            {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-            <button onClick={addFav} className="favButton">Add fav</button>
+        <div onClick={detailedPage} className="card">
+            <img className="cardPic" src={doctorImage} alt={id}/>
+            <h3>{name}</h3>            
+            <p>{username}</p>
+            <button onClick={addFav} className="favButton"><span role="img">{isFavorite ? "❤️":"🖤"}</span></button>
         </div>
     );
 };

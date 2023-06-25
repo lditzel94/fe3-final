@@ -1,6 +1,6 @@
 import {createContext, useEffect, useMemo, useState} from "react";
 import {useFetch} from "../../Hooks/useFetch";
-import {THEME} from "./constants";
+import {THEME, USERS_URL} from "./constants";
 
 export const initialState = {theme: THEME.LIGHT, data: []}
 
@@ -9,7 +9,7 @@ export const ContextGlobal = createContext();
 export const ContextProvider = ({children}) => {
     //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
     const [theme, setTheme] = useState(initialState.theme);
-    const users = useFetch("https://jsonplaceholder.typicode.com/users");
+    const users = useFetch(USERS_URL);
 
     useEffect(() => {
         localStorage.setItem('theme', theme);

@@ -11,6 +11,7 @@ export const routes = {
     detail: '/detail/:id',
     contact: '/contact',
     notFound: '*',
+    default: '/'
 }
 
 const AppRoutes = () => {

@@ -1,167 +1,212 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import '@fortawesome/fontawesome-free/css/all.css';
 
+* {box-sizing: border-box;}
+
 
 :root {
-  --primary-color: #000;
-  --secondary-color: rgb(136, 136, 136);
-  --background-color: #fff;
-  --dark-background-color: #12121296;
-  --text-color: #000;
-  --dark-text-color: #fff;
-}
-
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-.favButton {
-  position: absolute;
-  padding: 10px;
-  border: none;
-  background: none;
-  width: 10%;
-  height: 10%;
-  cursor: pointer;
-  top: 2%;
-  left: 80%;
-}
-
-h1 {
-  text-align: center;
-}
-
-nav {
-  display: flex;
-  width: 80vw;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
-.links {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  transition: 1s;
-}
-
-.link {
-  cursor: pointer;
-}
-
-.link:hover {
-  color: var(--secondary-color);
-  transition: 1s;
-}
-
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-  margin: 5px;
-  cursor: pointer;
-}
-
-a:hover {
-  color: var(--secondary-color);
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  position: relative;
-  bottom: 0;
-  width: 90%;
-  height: 40px;
-  margin-top: 2rem;
-}
-
-footer > img {
-  width: 200px;
-  margin: 0;
-}
-
-footer > p {
-  margin: 0;
-  padding-top: 0.7rem;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 300px;
-  height: 100px;
-  margin: 0 auto;
-}
-
-.cardPic {
-  width: 100%;
-  height: auto;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 5%;
-}
-
-.card {
-  position: relative;
-  border-radius: 5%;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: center;
-  width: 200px;
-  padding: 0.5rem 0.5rem 0 0.5rem;
-  border: 0.5px solid var(--secondary-color);
-}
-
-.card:hover {
-  border: 0.5px solid rgb(206, 217, 142);
-}
-
-.card-grid {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 1rem;
-  width: 90vw;
-  height: auto;
-  flex-wrap: wrap;
-  margin: 0 auto;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  display: table;
-  border: 1px solid #ccc;
-}
-
-td,
-th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-.dark {
-  background-color: var(--dark-background-color);
-  color: var(--dark-text-color);
-}
-
-.dark > a {
-  color: var(--dark-text-color);
-}
+  --primary-color: #FF4500;
+  --secondary-color: #A5A5A5;
+  --background-color: #FFFFFF;
+  --dark-background-color: #1A1A1B;
+  --text-color: #000000;
+  --dark-text-color: #FFFFFF;
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+    
+    code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    }
+    
+    .favButton {
+    position: absolute;
+    padding: 10px;
+    border: none;
+    background: none;
+    width: 10%;
+    height: 10%;
+    cursor: pointer;
+    top: 2%;
+    left: 80%;
+    }
+    
+    h1 {
+    text-align: center;
+    }
+    
+    nav {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    justify-content: space-between;
+    padding: 1rem;
+    }
+    
+    nav h2 {
+    color: var(--text-color);
+    }
+    
+    .links {
+    color: var(--secondary-color);
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    transition: 1s;
+    }
+    
+    .link {
+    cursor: pointer;
+    }
+    
+    .link:hover {
+    color: var(--secondary-color);
+    transition: 1s;
+    }
+    
+    a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 5px;
+    cursor: pointer;
+    }
+    
+    a:hover {
+    color: var(--secondary-color);
+    }
+    
+    footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    bottom: 0;
+    width: 90%;
+    height: 40px;
+    margin-top: 2rem;
+    }
+    
+    footer > img {
+    width: 200px;
+    margin: 0;
+    }
+    
+    footer > p {
+    margin: 0;
+    padding-top: 0.7rem;
+    }
+    
+    form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 300px;
+    height: 100px;
+    margin: 0 auto;
+    }
+    
+    .cardPic {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5%;
+    }
+    
+    .card {
+    position: relative;
+    border-radius: 5%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+    border: 0.5px solid var(--secondary-color);
+    }
+    
+    .card:hover {
+    border: 0.5px solid rgb(206, 217, 142);
+    }
+    
+    .card-grid {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+    width: 90vw;
+    height: auto;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    }
+    
+    table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table;
+    border: 1px solid #ccc;
+    }
+    
+    td,
+    th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
+    
+    .dark {
+    background-color: var(--dark-background-color);
+    color: var(--dark-text-color);
+    }
+    
+    .dark > a {
+    color: var(--dark-text-color);
+    }
+    
+    .checkbox {
+    opacity: 0;
+    position: absolute;
+    }
+    
+    .checkbox-label {
+    background-color: #111;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    
+    .fa-moon { color: #f1c40f; }
+    
+    .fa-sun { color: #f39c12; }
+    
+    .checkbox-label .ball {
+    background-color: #fff;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+    }
+    
+    .checkbox:checked + .checkbox-label .ball {
+    transform: translateX(24px);
+    }

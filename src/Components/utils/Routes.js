@@ -6,26 +6,17 @@ import Contact from "../../Routes/Contact";
 import NotFound from "../../Routes/NotFound";
 
 export const routes = {
-    home: '/',
+    home: '/home',
     favs: 'favs',
     detail: '/detail/:id',
     contact: '/contact',
     notFound: '*',
 }
 
-let jsonData;
-const url = 'https://jsonplaceholder.typicode.com/users'
-
-fetch(url)
-.then((res) => res.json()
-.then((data) => jsonData = data
- ))
-
-
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route path={routes.home} element={<Home jsonData={jsonData}/>}/>
+            <Route exact path={routes.home} element={<Home/>}/>
             <Route path={routes.favs} element={<Favs/>}/>
             <Route path={routes.detail} element={<Detail/>}/>
             <Route path={routes.contact} element={<Contact/>}/>
@@ -33,4 +24,5 @@ const AppRoutes = () => {
         </Routes>
     )
 }
+
 export default AppRoutes;

@@ -8,12 +8,9 @@ import {ContextGlobal} from "./utils/global.context";
 const Navbar = () => {
     const {toggleTheme, theme} = useContext(ContextGlobal);
 
-    console.log(`Theme ${theme}`)
-
     const handleThemeToggle = () => {
         document.body.classList.toggle('dark');
       };
-
 
     return (
         <nav className={`navbar ${theme}`}>

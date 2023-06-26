@@ -1,16 +1,14 @@
 import {React} from 'react'
 import {useParams} from 'react-router-dom'
 import {useFetch} from "../Hooks/useFetch";
+import {USERS_URL} from "../Components/utils/constants";
 
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
     const {id} = useParams()
-    const {data: user, loading, error} = useFetch(`https://jsonplaceholder.typicode.com/users/${id}`);
-
-    console.log(`User id: ${id}`)
-    console.log("User: ", user)
+    const {data: user, loading, error} = useFetch(`${USERS_URL}/${id}`);
 
     return (
         <>

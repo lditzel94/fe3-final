@@ -1,12 +1,12 @@
-import React, {useContext} from 'react'
-import {ContextGlobal} from "../Components/utils/global.context";
+import React from 'react'
+import {useGlobalContext} from "../Components/utils/global.context";
 import Card from "../Components/Card"
 import {useFavorites} from "../Hooks/useFavorites";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-    const {globalState: {theme, data}} = useContext(ContextGlobal)
+    const {globalState: {theme, data}} = useGlobalContext()
     const {favorites, updateFavorites} = useFavorites()
 
     return (

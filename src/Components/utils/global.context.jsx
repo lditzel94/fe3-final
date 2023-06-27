@@ -1,4 +1,4 @@
-import {createContext, useEffect, useMemo, useReducer} from "react";
+import {createContext, useContext, useEffect, useMemo, useReducer} from "react";
 import {useFetch} from "../../Hooks/useFetch";
 import {GLOBAL_ACTIONS, THEME, USERS_URL} from "./constants";
 
@@ -17,7 +17,7 @@ const globalContextReducer = (state, action) => {
     }
 }
 
-export const ContextGlobal = createContext();
+const ContextGlobal = createContext();
 
 export const ContextProvider = ({children}) => {
     //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
@@ -47,3 +47,5 @@ export const ContextProvider = ({children}) => {
         </ContextGlobal.Provider>
     );
 };
+
+export const useGlobalContext = () => useContext(ContextGlobal)

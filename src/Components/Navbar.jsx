@@ -1,12 +1,12 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {routes} from './utils/Routes';
-import {ContextGlobal} from './utils/global.context';
+import {useGlobalContext} from './utils/global.context';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import {THEME} from "./utils/constants";
 
 const Navbar = () => {
-    const {globalState: {theme, data}, dispatchGlobalState} = useContext(ContextGlobal)
+    const {globalState: {theme, data}, dispatchGlobalState} = useGlobalContext()
 
     const handleThemeToggle = () => {
         // document.body.classList.toggle('dark');

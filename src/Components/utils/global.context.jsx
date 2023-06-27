@@ -1,30 +1,45 @@
-import {createContext, useEffect, useMemo, useState} from "react";
+import {createContext, useEffect, useMemo, useReducer} from "react";
 import {useFetch} from "../../Hooks/useFetch";
-import {THEME, USERS_URL} from "./constants";
+import {GLOBAL_ACTIONS, THEME, USERS_URL} from "./constants";
 
-export const initialState = {theme: THEME.LIGHT, data: []}
+const initialState = {theme: THEME.LIGHT, data: []}
+
+const globalContextReducer = (state, action) => {
+    const {SWITCH_THEME, UPDATE_USERS} = GLOBAL_ACTIONS
+
+    switch (action.type) {
+        case SWITCH_THEME:
+            return {...state, theme: action.payload}
+        case UPDATE_USERS:
+            return {...state, data: action.payload}
+        default:
+            throw new Error('Invalid action type');
+    }
+}
 
 export const ContextGlobal = createContext();
 
 export const ContextProvider = ({children}) => {
     //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
-    const [theme, setTheme] = useState(initialState.theme);
+    const [globalState, dispatchGlobalState] = useReducer(globalContextReducer, initialState);
+    const contextValue = useMemo(() => ({
+        globalState,
+        dispatchGlobalState
+    }), [globalState, dispatchGlobalState])
     const users = useFetch(USERS_URL);
 
     useEffect(() => {
-        localStorage.setItem('theme', theme);
-    }, [theme]);
+        console.log("calling global state dispatcher")
+        console.log("users", users)
 
-    const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT));
-    };
+        if (users) {
+            dispatchGlobalState({type: "UPDATE_USERS", payload: users.data})
+        }
+    }, [users])
 
-    const contextValue = useMemo(() => ({
-        ...initialState,
-        theme,
-        data: users.data,
-        toggleTheme,
-    }), [theme, users.data, toggleTheme]);
+    useEffect(() => {
+        localStorage.setItem("theme", globalState.theme)
+    }, [globalState.theme]);
 
     return (
         <ContextGlobal.Provider value={contextValue}>

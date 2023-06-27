@@ -17,7 +17,7 @@ export const routes = {
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route exact path={"/"} element={<Home/>}/>
+            <Route exact path={routes.default} element={<Home/>}/>
             <Route path={routes.home} element={<Home/>}/>
             <Route path={routes.favs} element={<Favs/>}/>
             <Route path={routes.detail} element={<Detail/>}/>

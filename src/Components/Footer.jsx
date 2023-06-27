@@ -2,13 +2,13 @@ import React from 'react';
 import dhLogo from '../assets/LogoHeader.svg';
 
 const Footer = () => {
- 
-  return (
-    <footer style={styles.footer}>
-      <p style={styles.text}>Powered by</p>
-      <img src={dhLogo} alt="DH-logo" style={styles.logo} />
-    </footer>
-  );
+
+    return (
+        <footer style={styles.footer}>
+            <p style={styles.text}>Powered by</p>
+            <img src={dhLogo} alt="DH-logo" style={styles.logo}/>
+        </footer>
+    );
 };
 
 const styles = {
@@ -23,16 +23,16 @@ const styles = {
         padding: "1rem 0",
         background: "var(--color-secundario)",
         color: "var(--color-fondo)",
-      },
-      logo: {
+    },
+    logo: {
         maxWidth: '200px',
         padding: "0.8rem",
         margin: 0,
-      },
-      text: {
+    },
+    text: {
         margin: 0,
-      },
-  };
+    },
+};
 
 
 export default Footer;

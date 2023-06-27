@@ -1,4 +1,4 @@
-import {useEffect, useReducer, useState} from "react";
+import {useState} from "react";
 
 export const useFavorites = () => {
     const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem("favorites")) || [])

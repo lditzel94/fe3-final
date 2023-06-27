@@ -1,23 +1,19 @@
 import {useReducer} from "react";
 import {THEME} from "../Components/utils/constants";
 
-const initialState = {
-    theme: THEME.LIGHT
-};
-
 const themeReducer = (state, action) => {
     switch (action.type) {
         case THEME.LIGHT:
-            return {...state, theme: THEME.LIGHT};
+            return THEME.LIGHT
         case THEME.DARK:
-            return {...state, theme: THEME.DARK};
+            return THEME.DARK
         default:
             throw new Error('Invalid action type');
     }
 };
 
-export const useTheme = () => {
-    const [theme, dispatchTheme] = useReducer(themeReducer, initialState);
+export const useTheme = (initialState) => {
+    const [theme, switchTheme] = useReducer(themeReducer, initialState);
 
-    return {theme, dispatchTheme}
+    return [theme, switchTheme]
 }

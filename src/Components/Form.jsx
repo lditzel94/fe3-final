@@ -94,43 +94,43 @@ const Form = () => {
 
     return (
         <div style={styles.pageContainer}>
-        <div style={styles.formContainer}>
-            <form onSubmit={handleSubmit} noValidate>
-                <div style={styles.formGroup}>
-                    <label htmlFor="fullName" style={styles.label}>Full Name:</label>
-                    <input
-                        autoComplete="off"
-                        type="text"
-                        id="fullName"
-                        name="fullName"
-                        value={formData.fullName}
-                        onChange={handleInputChange}
-                        style={styles.input}
-                    />
-                    {errorMessages.fullNameError && (
-                        <p style={styles.errorMessage}>{errorMessages.fullNameError}</p>
-                    )}
-                </div>
-                <div style={styles.formGroup}>
-                    <label htmlFor="email" style={styles.label}>Email:</label>
-                    <input
-                        autoComplete="off"
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        style={styles.input}
-                    />
-                    {errorMessages.emailError && (
-                        <p style={styles.errorMessage}>{errorMessages.emailError}</p>
-                    )}
-                </div>
-                <button type="submit" style={isValid ? styles.submitButton : styles.disabledButton}
-                        disabled={!isValid}>Enviar
-                </button>
-            </form>
-        </div>
+            <div style={styles.formContainer}>
+                <form onSubmit={handleSubmit} noValidate>
+                    <div style={styles.formGroup}>
+                        <label htmlFor="fullName" style={styles.label}>Full Name:</label>
+                        <input
+                            autoComplete="off"
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            value={formData.fullName}
+                            onChange={handleInputChange}
+                            style={styles.input}
+                        />
+                        {errorMessages.fullNameError && (
+                            <p style={styles.errorMessage}>{errorMessages.fullNameError}</p>
+                        )}
+                    </div>
+                    <div style={styles.formGroup}>
+                        <label htmlFor="email" style={styles.label}>Email:</label>
+                        <input
+                            autoComplete="off"
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            style={styles.input}
+                        />
+                        {errorMessages.emailError && (
+                            <p style={styles.errorMessage}>{errorMessages.emailError}</p>
+                        )}
+                    </div>
+                    <button type="submit" style={isValid ? styles.submitButton : styles.disabledButton}
+                            disabled={!isValid}>Enviar
+                    </button>
+                </form>
+            </div>
         </div>
     );
 };
@@ -138,15 +138,15 @@ const Form = () => {
 const styles = {
     pageContainer: {
         display: 'flex',
-    
+
         alignItems: 'center',
         minHeight: '50vh',
-      },
+    },
 
     formContainer: {
-    maxWidth: '20rem',
-    padding: '1rem',
-  },
+        maxWidth: '20rem',
+        padding: '1rem',
+    },
 
     formGroup: {
         marginBottom: '20px',

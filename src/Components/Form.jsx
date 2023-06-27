@@ -93,6 +93,7 @@ const Form = () => {
     };
 
     return (
+        <div style={styles.pageContainer}>
         <div style={styles.formContainer}>
             <form onSubmit={handleSubmit} noValidate>
                 <div style={styles.formGroup}>
@@ -130,15 +131,22 @@ const Form = () => {
                 </button>
             </form>
         </div>
+        </div>
     );
 };
 
 const styles = {
+    pageContainer: {
+        display: 'flex',
+    
+        alignItems: 'center',
+        minHeight: '50vh',
+      },
+
     formContainer: {
-        maxWidth: '400px',
-        margin: '0 auto',
-        padding: '10rem'
-    },
+    maxWidth: '20rem',
+    padding: '1rem',
+  },
 
     formGroup: {
         marginBottom: '20px',

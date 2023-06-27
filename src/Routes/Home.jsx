@@ -11,7 +11,7 @@ const Home = () => {
 
     return (
         <main className="">
-            <h1>Home</h1>
+            <h1 className=''>HOME</h1>
             <div className="card-grid">
                 {data && data.map((item) => (
                     <Card key={item.id} name={item.name} username={item.username} id={item.id}

@@ -1,5 +1,21 @@
 import React, {useState} from "react";
 
+const initialInputState = {errorMessage: '', isValid: true}
+
+const validateFullName = (fullName) => {
+    if (fullName.length <= 5) {
+        return {...initialInputState, errorMessage: 'El nombre completo debe ser mayor a 5 caracteres', isValid: false};
+    }
+    return initialInputState;
+};
+
+const validateEmail = (email) => {
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    if (!emailRegex.test(email)) {
+        return {...initialInputState, errorMessage: 'Email inválido', isValid: false}
+    }
+    return initialInputState;
+};
 
 const Form = () => {
     //Aqui deberan implementar el form completo con sus validaciones
@@ -22,57 +38,48 @@ const Form = () => {
             [name]: value,
         }));
 
-        validateForm();
+        validateField(name, value);
     };
 
-    const validateFullName = () => {
-        if (formData.fullName.length <= 5) {
-            setErrorMessages((prevErrorMessages) => ({
-                ...prevErrorMessages,
-                fullNameError: 'El nombre completo debe ser mayor a 5 caracteres',
-            }));
-            return false;
+    const validateField = (fieldName, value) => {
+
+        switch (fieldName) {
+            case 'fullName': {
+                const {errorMessage} = validateFullName(value);
+                setErrorMessages((prevErrorMessages) => ({
+                    ...prevErrorMessages,
+                    fullNameError: errorMessage,
+                }));
+                break;
+            }
+
+            case 'email': {
+                const {errorMessage} = validateEmail(value);
+                setErrorMessages((prevErrorMessages) => ({
+                    ...prevErrorMessages,
+                    emailError: errorMessage,
+                }));
+                break;
+            }
+
+            default:
+                break;
         }
 
-        setErrorMessages((prevErrorMessages) => ({
-            ...prevErrorMessages,
-            fullNameError: '',
-        }));
-
-        return true;
-    };
-
-    const validateEmail = () => {
-        const emailRegex = /^\S+@\S+\.\S+$/;
-
-        if (!emailRegex.test(formData.email)) {
-            setErrorMessages((prevErrorMessages) => ({
-                ...prevErrorMessages,
-                emailError: 'Email inválido',
-            }));
-
-            return false;
-        }
-
-        setErrorMessages((prevErrorMessages) => ({
-            ...prevErrorMessages,
-            emailError: '',
-        }));
-
-        return true;
+        validateForm()
     };
 
     const validateForm = () => {
-        const isFullNameValid = validateFullName();
-        const isEmailValid = validateEmail();
+        const {isValid: isFullNameValid} = validateFullName(formData.fullName)
+        const {isValid: isEmailValid} = validateEmail(formData.email)
         setIsValid(isFullNameValid && isEmailValid);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form data: ", formData)
+        console.log('Form data: ', formData);
 
-        alert(`Gracias ${formData.fullName}, te contactaremos cuanto antes vía mail`)
+        alert(`Gracias ${formData.fullName}, te contactaremos cuanto antes vía mail`);
 
         setFormData({
             fullName: '',
@@ -116,7 +123,9 @@ const Form = () => {
                         <p style={styles.errorMessage}>{errorMessages.emailError}</p>
                     )}
                 </div>
-                <button type="submit" style={isValid ? styles.submitButton : styles.disabledButton} disabled={!isValid}>Enviar</button>
+                <button type="submit" style={isValid ? styles.submitButton : styles.disabledButton}
+                        disabled={!isValid}>Enviar
+                </button>
             </form>
         </div>
     );

@@ -98,6 +98,7 @@ const Form = () => {
                 <div style={styles.formGroup}>
                     <label htmlFor="fullName" style={styles.label}>Full Name:</label>
                     <input
+                        autoComplete="off"
                         type="text"
                         id="fullName"
                         name="fullName"
@@ -112,6 +113,7 @@ const Form = () => {
                 <div style={styles.formGroup}>
                     <label htmlFor="email" style={styles.label}>Email:</label>
                     <input
+                        autoComplete="off"
                         type="email"
                         id="email"
                         name="email"

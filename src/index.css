@@ -5,15 +5,20 @@
 
 
 :root {
-  --primary-color: #FF4500;
-  --secondary-color: #A5A5A5;
+  --primary-color: #A5A5A5;
+  --secondary-color:  #c62828;
+  --nav-back-color:#FFFFFF;
+  --nav-back-dark:#1A1A1B;;
   --background-color: #FFFFFF;
   --dark-background-color: #1A1A1B;
   --text-color: #000000;
   --dark-text-color: #FFFFFF;
+  --body-background:#DAE0E6;
+  --body-background-dark:#1A1A1B;
   }
   body {
     display: flex;
+    background-color: var(--body-background);
     justify-content: center;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
@@ -24,7 +29,11 @@
     code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
     }
-    
+
+    .navbar{
+    background-color:'var(--nav-back-color)'
+    }
+
     .favButton {
     position: absolute;
     padding: 10px;
@@ -39,30 +48,6 @@
     
     h1 {
     text-align: center;
-    }
-    
-    nav {
-    display: flex;
-    align-items: center;
-    width: 90vw;
-    justify-content: space-between;
-    padding: 1rem;
-    }
-    
-    nav h2 {
-    color: var(--text-color);
-    }
-    
-    .links {
-    color: var(--secondary-color);
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    transition: 1s;
-    }
-    
-    .link {
-    cursor: pointer;
     }
     
     .link:hover {
@@ -168,6 +153,7 @@
     .dark {
     background-color: var(--dark-background-color);
     color: var(--dark-text-color);
+    background-color: var(--body-background-dark);
     }
     
     .dark > a {

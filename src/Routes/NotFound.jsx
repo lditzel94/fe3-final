@@ -3,8 +3,8 @@ import lollyPopNotFound from "../assets/Chupetin404.svg"
 
 const NotFound = () => {
     return (
-        <div style={{minWidth: "490px"}}>
-            <img src={lollyPopNotFound} alt=""/>
+        <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+            <img src={lollyPopNotFound} style={{height:"60vh"}} alt=""/>
         </div>
     )
 }

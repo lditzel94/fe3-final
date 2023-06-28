@@ -33,7 +33,6 @@ export const useNavbar = () => {
     };
 
     const isDarkMode = theme === THEME.DARK ?? THEME.LIGHT
-    const navbarClassName = `navbar ${theme}`;
 
-    return {handleThemeToggle, getLogoIcon, isDarkMode, navbarClassName}
+    return {handleThemeToggle, getLogoIcon, isDarkMode}
 }

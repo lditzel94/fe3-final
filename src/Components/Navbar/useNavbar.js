@@ -32,7 +32,7 @@ export const useNavbar = () => {
         return null;
     };
 
-    const isDarkMode = theme === THEME.DARK ?? THEME.LIGHT
+    const isDarkMode = theme === THEME.DARK ? true : false
 
     return {handleThemeToggle, getLogoIcon, isDarkMode}
 }

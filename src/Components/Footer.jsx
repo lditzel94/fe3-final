@@ -1,15 +1,26 @@
 import React from 'react';
 import dhLogo from '../assets/LogoHeader.svg';
 
-const Footer = () => {
+const Footer = () => (
+    <FooterContainer>
+        <Text value={"Powered by"}/>
+        <Img src={dhLogo} alt="DH-logo"/>
+    </FooterContainer>
+);
 
-    return (
-        <footer style={styles.footer}>
-            <p style={styles.text}>Powered by</p>
-            <img src={dhLogo} alt="DH-logo" style={styles.logo}/>
-        </footer>
-    );
-};
+const FooterContainer = ({children}) => (
+    <footer style={styles.footer}>
+        {children}
+    </footer>
+)
+
+const Text = ({value}) => (
+    <p style={styles.text}>{value}</p>
+)
+
+const Img = (props) => (
+    <img {...props} style={styles.logo}/>
+)
 
 const styles = {
     footer: {

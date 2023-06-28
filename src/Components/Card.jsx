@@ -23,18 +23,52 @@ const Card = ({name, username, id, favorites, updateFavorites}) => {
     const showDetail = () => navigate(`/detail/${id}`);
 
     return (
-        <div style={styles.container}>
-            <div className="card" style={styles.card} onClick={showDetail}>
-                <img className="cardPic" src={doctorImage} alt={id} style={styles.cardPic}/>
-                <h3 style={styles.name}>{name}</h3>
-                <p style={styles.user}>{username}</p>
-                <button onClick={(e) => toggleFavorite(e)} className="favButton" style={styles.favButton}>
-                    <span role="img">{isFavorite ? "❤️" : "🖤"}</span>
-                </button>
-            </div>
-        </div>
+        <CardContainer>
+            <StyledCard onClick={showDetail}>
+                <CardImg src={doctorImage} alt={id}/>
+                <CardName value={name}/>
+                <CardUsername value={username}/>
+                <CardFavoriteButton onClick={(e) => toggleFavorite(e)}>
+                    <CardFavoriteButtonIcon isFavorite={isFavorite}/>
+                </CardFavoriteButton>
+            </StyledCard>
+        </CardContainer>
     );
 };
+
+const CardContainer = ({children}) => (
+    <div style={styles.container}>
+        {children}
+    </div>
+)
+
+const StyledCard = ({children, ...props}) => (
+    <div className="card" style={styles.card} {...props}>
+        {children}
+    </div>
+)
+
+const CardImg = (props) => (
+    <img {...props} className="cardPic" style={styles.cardPic}/>
+)
+
+const CardName = ({value}) => (
+    <h3 style={styles.name}>{value}</h3>
+)
+
+const CardUsername = ({value}) => (
+    <p style={styles.user}>{value}</p>
+)
+
+const CardFavoriteButton = ({children, ...props}) => (
+    <button {...props} className="favButton" style={styles.favButton}>
+        {children}
+    </button>
+)
+
+const CardFavoriteButtonIcon = ({isFavorite}) => (
+    <span role="img">{isFavorite ? "❤️" : "🖤"}</span>
+)
 
 const styles = {
     container: {

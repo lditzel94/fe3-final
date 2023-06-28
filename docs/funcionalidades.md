@@ -18,7 +18,7 @@ Las siguientes funcionalidades son requisitos mínimos necesarios para la aproba
 
 **La correcta navegacion entre las paginas por medio de Links propios de React Router sera obligatoria para la aprobacion**
 
-**Es crucial la presencia homogenea en todas las paginas del [Navbar](/src/Components/Navbar.jsx) y [Footer](/src/Components/Footer.jsx)**
+**Es crucial la presencia homogenea en todas las paginas del [Navbar](/src/Components/Navbar/Navbar.jsx) y [Footer](/src/Components/Footer/Footer.jsx)**
 
 ### Creación del Context
 
@@ -51,13 +51,13 @@ En esta página se deberá mostrar un listado en forma de grilla de los dentista
 Se deberá tener en cuenta lo siguiente:
 
 - Deberá ser la página de inicio de la web.
-- La grilla deberá mostrar una [Card](/src/Components/Card.jsx) por cada dentista devuelto por la API.
+- La grilla deberá mostrar una [Card](/src/Components/Card/Card.jsx) por cada dentista devuelto por la API.
 - Cada dentista deberá contener `name` y `username`, junto con un boton `ADD FAV` (para agregar al localStorage como fav) y un `link` que permita su navegacion a la pagina _dentist/:id_ en base al id del dentista.
 - Cada Card debe integrar la funcionalidad de agregar a destacados
 
 ### Pagina 2: Contacto
 
-En esta pagina deberán implementar un [Form](/src/Components/Form.jsx) (con sus validaciones pertinentes) que capture la información del usuario que desea contactar con la empresa. Los campos serán los siguientes:
+En esta pagina deberán implementar un [Form](/src/Components/Form/Form.jsx) (con sus validaciones pertinentes) que capture la información del usuario que desea contactar con la empresa. Los campos serán los siguientes:
 
 - Nombre completo (con longitud mayor a 5)
 - Email (con formato correcto de email)
@@ -79,7 +79,7 @@ Se deberá tener en cuenta lo siguiente:
 
 ### Pagina 4: Destacados
 
-En esta pagina se debera renderizar las [Cards](/src/Components/Card.jsx) pertinentes a los dentistas destacados. Dicha información deberá estar almacenada dentro del localStorage del browser y ser consumida dentro de la pagina
+En esta pagina se debera renderizar las [Cards](/src/Components/Card/Card.jsx) pertinentes a los dentistas destacados. Dicha información deberá estar almacenada dentro del localStorage del browser y ser consumida dentro de la pagina
 
 - Se deberá estar en la ruta `/favs`.
 

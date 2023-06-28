@@ -1,41 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {routes} from './utils/Routes';
-import {useGlobalContext} from './utils/global.context';
+import {routes} from '../utils/Routes';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import {THEME} from "./utils/constants";
+import {useNavbar} from "./useNavbar";
 
 const Navbar = () => {
-    const {globalState: {theme, data}, dispatchGlobalState} = useGlobalContext()
-
-    const handleThemeToggle = () => {
-        // document.body.classList.toggle('dark');
-        dispatchGlobalState({
-            type: "SWITCH_THEME",
-            payload: theme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT
-        })
-    };
-
-    const getLogoIcon = () => {
-        if (theme === 'light') {
-            return (
-                <div>
-                    <i className="bi bi-caret-right-square-fill"></i>
-                    <i className="bi bi-h-square"></i>
-                </div>
-            );
-        } else if (theme === 'dark') {
-            return (
-                <div>
-                    <i className="bi bi-caret-right-square"></i>
-                    <i className="bi bi-h-square-fill"></i>
-                </div>
-            );
-        }
-        return null;
-    };
-
-    const navbarClassName = `navbar ${theme}`;
+    const {handleThemeToggle, getLogoIcon, isDarkMode, navbarClassName} = useNavbar()
 
     return (
         <nav className={navbarClassName}>
@@ -43,13 +13,22 @@ const Navbar = () => {
                 {getLogoIcon()}
             </div>
             <div style={styles.linksContainer}>
-                <Link to={routes.home} className="link" style={styles.link}>
+                <Link to={routes.home} className="link" style={{
+                    color: isDarkMode ? 'var(--color-fondo)' : 'var(--color-fondo-dark)',
+                    ...styles.link
+                }}>
                     Home
                 </Link>
-                <Link to={routes.favs} className="link" style={styles.link}>
+                <Link to={routes.favs} className="link" style={{
+                    color: isDarkMode ? 'var(--color-fondo)' : 'var(--color-fondo-dark)',
+                    ...styles.link
+                }}>
                     Favs
                 </Link>
-                <Link to={routes.contact} className="link" style={styles.link}>
+                <Link to={routes.contact} className="link" style={{
+                    color: isDarkMode ? 'var(--color-fondo)' : 'var(--color-fondo-dark)',
+                    ...styles.link
+                }}>
                     Contact
                 </Link>
             </div>
@@ -60,10 +39,13 @@ const Navbar = () => {
                     id="checkbox"
                     onChange={handleThemeToggle}
                 />
-                <label htmlFor="checkbox" className="checkbox-label">
-                    <i className="fas fa-moon"></i>
-                    <i className="bi bi-brightness-low"></i>
-                    <span className="ball"></span>
+                <label htmlFor="checkbox"
+                       className="checkbox-label"
+                       style={{backgroundColor: isDarkMode ? "white" : "black"}}>
+                    <i className="fas fa-moon" style={{color: "black"}}></i>
+                    <i className="bi bi-sun" style={{color: "white"}}></i>
+                    <span className="ball"
+                          style={{backgroundColor: isDarkMode ? "black" : "white"}}></span>
                 </label>
             </div>
         </nav>
@@ -99,13 +81,11 @@ const styles = {
         cursor: 'pointer',
         textDecoration: 'none',
         margin: '5px',
-        color: 'var(--color-fondo-dark)',
         transition: 'color 0.5s',
     },
     themeToggleContainer: {
         marginLeft: 'auto',
     },
 };
-
 
 export default Navbar;

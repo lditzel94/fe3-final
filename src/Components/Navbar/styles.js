@@ -18,6 +18,8 @@ export const NavbarContainer = styled.div`
   `}
 `
 
+
+
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;

@@ -11,7 +11,7 @@
     --color-primario: #A5A5A5;
     --color-secundario: #222;
     --color-nav-fondo: #FFFFFF;
-    --color-nav-dark: #1A1A1B;
+    --color-nav-dark: #2a2a2a;
     --color-fondo: #FFFFFF;
     --color-fondo-dark: #1A1A1B;
     --color-texto: #000000;
@@ -106,3 +106,49 @@ tr:nth-child(even) {
     align-items: center;
 
 }
+
+
+
+body.light {
+    background-color: var(--color-primario);
+}
+
+body.dark {
+    background-color: var(--color-fondo-body-dark);
+}
+
+
+h1.light {
+    color: var(--color-texto);
+}
+
+h1.dark {
+    color: var(--color-texto-dark);
+}
+
+h2.light {
+    color: var(--color-texto);
+}
+
+h2.dark {
+    color: var(--color-texto-dark);
+}
+
+p.light {
+    color: var(--color-texto);
+}
+
+p.dark {
+    color: var(--color-texto-dark);
+}
+
+div.light {
+    color: var(--color-texto);
+}
+
+div.dark {
+    color: var(--color-texto-dark);
+}
+
+
+

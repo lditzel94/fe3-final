@@ -1,18 +1,8 @@
 import React from "react";
 import {useForm} from "./useForm";
-import {
-    ErrorMessage,
-    FormButton,
-    FormContainer,
-    Input,
-    InputGroup,
-    InputLabel,
-    MainForm,
-    PageContainer
-} from "./styles";
+import {ErrorMessage, FormButton, FormContainer, Input, InputGroup, InputLabel, PageContainer} from "./styles";
 
 const Form = () => {
-    //Aqui deberan implementar el form completo con sus validaciones
     const {
         data: {
             formData,
@@ -30,9 +20,9 @@ const Form = () => {
     return (
         <PageContainer>
             <FormContainer>
-                <MainForm onSubmit={handleSubmit} noValidate>
+                <form onSubmit={handleSubmit} noValidate>
                     <InputGroup>
-                        <InputLabel htmlFor="fullName" value={"Full Name:"}/>
+                        <InputLabel htmlFor="fullName">Full Name</InputLabel>
                         <Input
                             autoComplete="off"
                             type="text"
@@ -44,7 +34,7 @@ const Form = () => {
                         <ErrorMessage errorMessage={errorMessages.fullNameError}/>
                     </InputGroup>
                     <InputGroup>
-                        <InputLabel htmlFor="email" value={"Email:"}/>
+                        <InputLabel htmlFor="email">Email</InputLabel>
                         <Input
                             autoComplete="off"
                             type="email"
@@ -55,8 +45,8 @@ const Form = () => {
                         />
                         <ErrorMessage errorMessage={errorMessages.emailError}/>
                     </InputGroup>
-                    <FormButton type="submit" disabled={!isValidForm} value={"Enviar"}/>
-                </MainForm>
+                    <FormButton type="submit" disabled={!isValidForm}>Enviar</FormButton>
+                </form>
             </FormContainer>
         </PageContainer>
     )

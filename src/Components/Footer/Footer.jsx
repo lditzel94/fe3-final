@@ -4,7 +4,7 @@ import {FooterContainer, Img, Text} from "./styles";
 
 const Footer = () => (
     <FooterContainer>
-        <Text value={"Powered by"}/>
+        <Text>Powered by</Text>
         <Img src={dhLogo} alt="DH-logo"/>
     </FooterContainer>
 );

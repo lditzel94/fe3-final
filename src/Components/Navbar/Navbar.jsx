@@ -12,7 +12,6 @@ import {
     StyledLink,
     ThemeToggleContainer
 } from "./styles";
-import {THEME} from "../utils/constants";
 
 const Navbar = () => {
     const {handleThemeToggle, getLogoIcon, isDarkMode} = useNavbar();

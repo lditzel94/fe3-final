@@ -3,10 +3,9 @@ import {THEME} from "../utils/constants";
 import React from "react";
 
 export const useNavbar = () => {
-    const {globalState: {theme, data}, dispatchGlobalState} = useGlobalContext()
+    const {globalState: {theme}, dispatchGlobalState} = useGlobalContext()
 
     const handleThemeToggle = () => {
-        // document.body.classList.toggle('dark');
         dispatchGlobalState({
             type: "SWITCH_THEME",
             payload: theme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT
@@ -32,7 +31,7 @@ export const useNavbar = () => {
         return null;
     };
 
-    const isDarkMode = theme === THEME.DARK ? true : false
+    const isDarkMode = theme === THEME.DARK
 
     return {handleThemeToggle, getLogoIcon, isDarkMode}
 }

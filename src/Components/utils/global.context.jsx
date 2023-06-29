@@ -20,7 +20,6 @@ const globalContextReducer = (state, action) => {
 const ContextGlobal = createContext();
 
 export const ContextProvider = ({children}) => {
-    //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
     const [globalState, dispatchGlobalState] = useReducer(globalContextReducer, initialState);
     const contextValue = useMemo(() => ({
         globalState,

@@ -1,101 +1,61 @@
 import React from "react";
+import {styled} from "styled-components";
 
-export const CardContainer = ({children}) => {
-    const container = {
-        marginBottom: "2rem",
-    }
+export const CardContainer = styled.div`
+  margin-bottom: 2rem;
+`
 
-    return (
-        <div style={container}>
-            {children}
-        </div>
-    );
-}
+export const MainCard = styled.div`
+  background-color: var(--color-nav-fondo);
+  position: relative;
+  border-radius: 5%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  width: 15rem;
+  padding: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform .1s ease-in-out;
 
-export const StyledCard = ({children, ...props}) => {
-    const card = {
-        backgroundColor: "var(--color-nav-fondo)",
-        position: "relative",
-        borderRadius: "5%",
-        display: "flex",
-        justifyContent: "space-evenly",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "15rem",
-        padding: "0.5rem",
-        border: "none",
-        "&:hover": {
-            border: "0.5px solid rgb(206, 217, 142)",
-        },
-        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
-    }
+  &:hover {
+    transform: scale(1.1);
+  }
+`
 
-    return (
-        <div className="card" style={card} {...props}>
-            {children}
-        </div>
-    );
-}
+export const CardImg = styled.img`
+  width: 100%;
+  height: auto;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+`
 
-export const CardImg = (props) => {
-    const cardPic = {
-        width: "100%",
-        height: "auto",
-        alignItems: "center",
-        cursor: "pointer",
-        borderRadius: "5%",
-    }
+export const CardName = styled.h3`
+  margin: 0;
+  padding: 1rem 1rem 1rem 1rem;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-texto);
+`
 
-    return (
-        <img {...props} className="cardPic" style={cardPic}/>
-    );
-}
+export const CardUsername = styled.p`
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-secundario);
+`
 
-export const CardName = ({value}) => {
-    const name = {
-        margin: 0,
-        padding: "1rem 1rem 1rem 1rem",
-        fontSize: "18px",
-        fontWeight: "bold",
-        color: "var(--color-texto)",
-    }
-
-    return (
-        <h3 style={name}>{value}</h3>
-    );
-}
-
-export const CardUsername = ({value}) => {
-    const user = {
-        margin: 0,
-        fontSize: "14px",
-        color: "var(--color-secundario)",
-    }
-
-    return (
-        <p style={user}>{value}</p>
-    );
-}
-
-export const CardFavoriteButton = ({children, ...props}) => {
-    const favButton = {
-        position: "absolute",
-        padding: "10px",
-        border: "none",
-        background: "none",
-        width: "10%",
-        height: "10%",
-        cursor: "pointer",
-        top: "2%",
-        left: "80%",
-    }
-
-    return (
-        <button {...props} className="favButton" style={favButton}>
-            {children}
-        </button>
-    );
-}
+export const CardFavoriteButton = styled.button`
+  position: absolute;
+  padding: 10px;
+  border: none;
+  background: none;
+  width: 10%;
+  height: 10%;
+  cursor: pointer;
+  top: 2%;
+  left: 80%;
+`
 
 export const CardFavoriteButtonIcon = ({isFavorite}) => (
     <span role="img">{isFavorite ? "❤️" : "🖤"}</span>

@@ -3,51 +3,50 @@ import {useParams} from 'react-router-dom'
 import {useFetch} from "../Hooks/useFetch";
 import {USERS_URL} from "../Components/utils/constants";
 import doctorImage from "../assets/doctor.jpg";
-
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import {styled} from "styled-components";
+import {useGlobalContext} from "../Components/utils/global.context";
 
 const Detail = () => {
     const {id} = useParams()
-    const {data: user, loading, error} = useFetch(`${USERS_URL}/${id}`);
+    const {globalState: {theme}} = useGlobalContext()
+    const {data: user, loading} = useFetch(`${USERS_URL}/${id}`);
 
     return (
         <>
-            <h1>Detail Dentist id </h1>
+            <Heading theme={theme} value="Dentist Detail"/>
             {!loading && (
-                <div className="card" style={cardStyle}>
-                    <img src={doctorImage} alt="User" style={imageStyle}/>
-                    <div style={infoContainerStyle}>
-                        <div style={infoStyle}>
-                            <span style={labelStyle}>Name:</span> {user.name}
-                        </div>
-                        <div style={infoStyle}>
-                            <span style={labelStyle}>Username:</span> {user.username}
-                        </div>
-                        <div style={infoStyle}>
-                            <span style={labelStyle}>Email:</span> {user.email}
-                        </div>
-                        <div style={infoStyle}>
-                        <span
-                            style={labelStyle}>Address:</span> {user.address.street}, {user.address.suite}, {user.address.city}, {user.address.zipcode}
-                        </div>
-                        <div style={infoStyle}>
-                            <span style={labelStyle}>Phone:</span> {user.phone}
-                        </div>
-                        <div style={infoStyle}>
-                            <span style={labelStyle}>Website:</span> {user.website}
-                        </div>
-                        <div style={infoStyle}>
-                            <span style={labelStyle}>Company:</span> {user.company.name}
-                        </div>
-                        <div style={infoStyle}>
-                            <span style={labelStyle}>Catch Phrase:</span> {user.company.catchPhrase}
-                        </div>
-                        <div style={infoStyle}>
-                            <span style={labelStyle}>Business:</span> {user.company.bs}
-                        </div>
-                    </div>
-                </div>
+                <DetailCard className="card">
+                    <Img src={doctorImage} alt="User"/>
+                    <InfoContainer>
+                        <Info>
+                            <InfoLabel>Name:</InfoLabel> {user.name}
+                        </Info>
+                        <Info>
+                            <InfoLabel>Username:</InfoLabel> {user.username}
+                        </Info>
+                        <Info>
+                            <InfoLabel>Email:</InfoLabel> {user.email}
+                        </Info>
+                        <Info>
+                            <InfoLabel>Address:</InfoLabel> {user.address.street}, {user.address.suite}, {user.address.city}, {user.address.zipcode}
+                        </Info>
+                        <Info>
+                            <InfoLabel>Phone:</InfoLabel> {user.phone}
+                        </Info>
+                        <Info>
+                            <InfoLabel>Website:</InfoLabel> {user.website}
+                        </Info>
+                        <Info>
+                            <InfoLabel>Company:</InfoLabel> {user.company.name}
+                        </Info>
+                        <Info>
+                            <InfoLabel>Catch Phrase:</InfoLabel> {user.company.catchPhrase}
+                        </Info>
+                        <Info>
+                            <InfoLabel>Business:</InfoLabel> {user.company.bs}
+                        </Info>
+                    </InfoContainer>
+                </DetailCard>
             )}
         </>
     )
@@ -55,39 +54,33 @@ const Detail = () => {
 
 export default Detail
 
-const cardStyle = {
-    maxWidth: '1000px',
-    margin: '0 auto',
-    border: '1px solid #ccc',
-    borderRadius: '4px',
-    padding: '20px',
-    backgroundColor: '#f8f9fa',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    display: 'flex',
-};
+const Heading = ({theme, value}) => (<h1 className={theme === "dark" ? "dark" : "light"}>{value}</h1>)
 
-const imageStyle = {
-    width: '40%',
-    marginRight: '20px',
-};
+const DetailCard = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+`
 
-const infoContainerStyle = {
-    width: '60%',
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-evenly"
-};
+const Img = styled.img`
+  width: 40%;
+  margin-right: 20px;
+`
 
-const subtitleStyle = {
-    fontSize: '16px',
-    color: '#777',
-    marginBottom: '10px',
-};
-
-const labelStyle = {
-    fontWeight: 'bold',
-};
-
-const infoStyle = {
-    marginBottom: '10px',
-};
+const InfoContainer = styled.div`
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+`
+const Info = styled.div`
+  margin-bottom: 10px;
+`
+const InfoLabel = styled.span`
+  font-weight: bold;
+`

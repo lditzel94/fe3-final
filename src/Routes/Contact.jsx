@@ -1,20 +1,36 @@
 import React from 'react'
 import Form from '../Components/Form/Form'
-import { useGlobalContext } from '../Components/utils/global.context'
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import {useGlobalContext} from '../Components/utils/global.context'
 
 const Contact = () => {
-    const { globalState: { theme } } = useGlobalContext();
-
+    const {globalState: {theme}} = useGlobalContext();
 
     return (
-        <div className={`contact-container ${theme === "dark" ? "dark" : "light"}`}>
-            <h2 className={theme === "dark" ? "dark" : "light"}>Want to know more?</h2>
-            <p className={theme === "dark" ? "dark" : "light"}>Send us your questions and we will contact you</p>
+        <ContactContainer theme={theme}>
+            <Heading theme={theme} value="Want to know more?"/>
+            <SubHeading theme={theme}
+                        value="Send us your questions and we will contact you"/>
             <Form/>
-        </div>
+        </ContactContainer>
     )
 }
+
+const ContactContainer = ({theme, children}) => (
+    <div className={`contact-container ${theme === "dark" ? "dark" : "light"}`}>
+        {children}
+    </div>
+)
+
+const Heading = ({theme, value}) => (
+    <h2 className={theme === "dark" ? "dark" : "light"}>
+        {value}
+    </h2>
+)
+
+const SubHeading = ({theme, value}) => (
+    <p className={theme === "dark" ? "dark" : "light"}>
+        {value}
+    </p>
+)
 
 export default Contact

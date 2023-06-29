@@ -1,95 +1,44 @@
 import React from "react";
+import {styled} from "styled-components";
 
-export const PageContainer = ({children}) => {
-    const pageContainer = {
-        display: "flex",
-        alignItems: "center",
-        minHeight: "50vh",
-    }
+export const PageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  min-height: 50vh;
+`
 
-    return (
-        <div style={pageContainer}>
-            {children}
-        </div>
-    );
-}
+export const FormContainer = styled.div`
+  max-width: 20rem;
+  padding: 1rem;
+`
 
-export const FormContainer = ({children}) => {
-    const formContainer = {
-        maxWidth: "20rem",
-        padding: "1rem",
-    }
+export const FormButton = styled.button`
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: ${({disabled}) => disabled ? "gray" : "#007bff"};
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: ${({disabled}) => disabled ? "not-allowed" : "pointer"};
+`
 
-    return (
-        <div style={formContainer}>
-            {children}
-        </div>
-    );
-}
+export const InputGroup = styled.div`
+  margin-bottom: 20px;
+`
 
-export const MainForm = ({children, ...props}) => (
-    <form {...props}>
-        {children}
-    </form>
-)
+export const InputLabel = styled.label`
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+`
 
-export const FormButton = ({value, disabled, ...props}) => {
-    const submitButton = {
-        padding: "10px 20px",
-        fontSize: "16px",
-        backgroundColor: disabled ? "gray" : "#007bff",
-        color: "white",
-        border: "none",
-        borderRadius: "4px",
-        cursor: disabled ? "not-allowed" : "pointer",
-    }
-
-    return (
-        <button disabled={disabled}
-                style={submitButton}
-                {...props}>
-            {value}
-        </button>
-    )
-}
-
-export const InputGroup = ({children}) => {
-    const formGroup = {
-        marginBottom: "20px",
-    }
-
-    return (
-        <div style={formGroup}>
-            {children}
-        </div>
-    );
-}
-
-export const InputLabel = ({value, ...props}) => {
-    const label = {
-        display: "block",
-        marginBottom: "5px",
-        fontWeight: "bold",
-    }
-
-    return (
-        <label style={label} {...props}>{value}</label>
-    );
-}
-
-export const Input = ({...props}) => {
-    const input = {
-        width: "100%",
-        padding: "10px",
-        fontSize: "16px",
-        border: "1px solid #ced4da",
-        borderRadius: "4px",
-    }
-
-    return (
-        <input style={input} {...props}/>
-    );
-}
+export const Input = styled.input`
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+`
 
 export const ErrorMessage = ({errorMessage}) => {
     const errorMessageStyles = {

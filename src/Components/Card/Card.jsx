@@ -8,7 +8,7 @@ import {
     CardImg,
     CardName,
     CardUsername,
-    StyledCard
+    MainCard
 } from "./styles";
 
 const Card = ({name, username, id, favorites, updateFavorites}) => {
@@ -18,14 +18,14 @@ const Card = ({name, username, id, favorites, updateFavorites}) => {
 
     return (
         <CardContainer>
-            <StyledCard onClick={showDetail}>
-                <CardImg src={doctorImage} alt={id}/>
-                <CardName value={name}/>
-                <CardUsername value={username}/>
-                <CardFavoriteButton onClick={(e) => toggleFavorite(e)}>
+            <MainCard className="card" onClick={showDetail}>
+                <CardImg className="cardPic" src={doctorImage} alt={id}/>
+                <CardName>{name}</CardName>
+                <CardUsername>{username}</CardUsername>
+                <CardFavoriteButton className="favButton" onClick={(e) => toggleFavorite(e)}>
                     <CardFavoriteButtonIcon isFavorite={isFavorite}/>
                 </CardFavoriteButton>
-            </StyledCard>
+            </MainCard>
         </CardContainer>
     );
 };

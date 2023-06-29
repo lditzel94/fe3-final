@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 export const NavbarContainer = styled.div`
   display: flex;
-  alignItems: center;
+  align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem 1rem 2rem;
   margin-bottom: 2rem;
@@ -17,8 +17,6 @@ export const NavbarContainer = styled.div`
     color: var(--color-texto-dark);
   `}
 `
-
-
 
 export const LogoContainer = styled.div`
   display: flex;

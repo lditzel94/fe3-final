@@ -1,12 +1,23 @@
 import React from 'react'
-import lollyPopNotFound from "../assets/Chupetin404.svg"
+import LOLLIPOP_404 from "../assets/LOLLIPOP_404.svg"
+import {styled} from "styled-components";
 
 const NotFound = () => {
     return (
-        <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
-            <img src={lollyPopNotFound} style={{height:"60vh"}} alt=""/>
-        </div>
+        <Container>
+            <ErrorImage src={LOLLIPOP_404} alt="404 Page not found"/>
+        </Container>
     )
 }
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const ErrorImage = styled.img`
+  height: 60vh;
+`
 
 export default NotFound
